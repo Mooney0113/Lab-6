@@ -2,7 +2,7 @@
 
 Random rng  = new Random(4000) ;
 
-System.Console.WriteLine("=== CSCI 1250 Lab 06 ==");
+System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
 System.Console.WriteLine("1. The Grade Checker");
 System.Console.WriteLine("2. The Dice Table");
 System.Console.WriteLine("3. The Score Report");
@@ -16,7 +16,7 @@ int choice = Convert.ToInt32(Console.ReadLine()) ;
 
 while (choice < 1 || choice > 5 )
 {
-    System.Console.Write("Choose 1 through 5: ");
+    System.Console.Write("Choose a number from 1 through 5: ");
      choice = Convert.ToInt32(Console.ReadLine()) ;
 }
 
