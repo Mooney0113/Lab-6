@@ -1,4 +1,8 @@
-﻿System.Console.WriteLine("=== CSCI 1250 Lab 06 ==");
+﻿
+
+Random rng  = new Random(4000) ;
+
+System.Console.WriteLine("=== CSCI 1250 Lab 06 ==");
 System.Console.WriteLine("1. The Grade Checker");
 System.Console.WriteLine("2. The Dice Table");
 System.Console.WriteLine("3. The Score Report");
@@ -12,15 +16,15 @@ int choice = Convert.ToInt32(Console.ReadLine()) ;
 
 while (choice < 1 || choice > 5 )
 {
-    System.Console.WriteLine("Choose 1 through 5: ");
+    System.Console.Write("Choose 1 through 5: ");
      choice = Convert.ToInt32(Console.ReadLine()) ;
 }
 
 if (choice == 1 || choice == 4 )
 {
-    System.Console.WriteLine("=== The Grade Checker ===" );
+    System.Console.WriteLine("=== Exercise 1: The Grade Checker ===" );
 
-    System.Console.WriteLine("Score :");
+    System.Console.Write("Score :");
     int score = Convert.ToInt32(Console.ReadLine()) ;
 
     while (score < 0 || score > 100)
@@ -53,10 +57,52 @@ if (choice == 1 || choice == 4 )
 }
 if (choice == 2 || choice == 4)
 {
-    System.Console.WriteLine("=== The Dice Table ===");
+    System.Console.WriteLine("=== Exercise 2: The Dice Table ===");
+
+    int rollCount = 0;
+    int winCount = 0;
+    string rollAgain;
+    
+
+    do
+    {
+        int die1 = rng.Next(1, 7);
+        int die2 = rng.Next(1, 7);
+
+        int total = die1 + die2 ;
+        rollCount++;
+
+        System.Console.Write("Roll " + rollCount + ": " + die1 + " and " + die2 + ", total " + total + ".");
+
+
+        if (die1 == 1 && die2 == 1)
+        {
+            System.Console.WriteLine(" Snake eyes.");
+        }
+        else if ( die1 == die2)
+        {
+            System.Console.WriteLine( " Doubles!");
+        }
+        else if (total == 7 || total == 11)
+        {
+            System.Console.WriteLine(" A winner.");
+            winCount++;
+        }
+        else
+        {
+        System.Console.WriteLine();
+        }
+
+         System.Console.Write("Roll again? (y/n): ");
+        rollAgain = Console.ReadLine() ?? "" ;
+        
+    } while (rollAgain == "y") ;
+
+    System.Console.WriteLine("You Rolled " + rollCount + " times and won " + winCount + ".");
+
 }
 if (choice == 3 || choice == 4)
 {
-    System.Console.WriteLine("=== The Score Report ===");
+    System.Console.WriteLine("=== Exercise 3: The Score Report ===");
 }
 
