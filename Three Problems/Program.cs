@@ -1,5 +1,8 @@
 ﻿
 
+using System.Numerics;
+using System.Xml.Schema;
+
 Random rng  = new Random(4000) ;
 
 System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
@@ -104,5 +107,42 @@ if (choice == 2 || choice == 4)
 if (choice == 3 || choice == 4)
 {
     System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+
+    int[] scores = new int [5] ;
+
+    //A for loop is used because we need an index to enter five scores. 
+    for (int i = 0; i < scores.Length; i++)
+    {
+        System.Console.Write("Score " + (i +1) + ": ");
+        scores[i] = Convert.ToInt32(Console.ReadLine()) ;
+    }
+
+    int total = 0 ;
+    int highest = scores[0] ; 
+    int passing = 0 ;
+
+    // A foreach loop is used because we need to examine every score
+    foreach (int score in scores)
+    {
+        total += score;
+
+        if (score > highest)
+        {
+            highest = score ;
+        }
+        if (score >= 60)
+        {
+            passing++;
+        }
+    }
+    double average = Convert.ToDouble(total) / scores.Length;
+    
+    System.Console.WriteLine("Scores entered: " + scores.Length);
+    System.Console.WriteLine("Total: " + total);
+    System.Console.WriteLine("Average: " + average.ToString("F1"));
+    System.Console.WriteLine("Highest: " + highest);
+    System.Console.WriteLine("Passing: " + passing + " of " + scores.Length);
+
 }
+
 
